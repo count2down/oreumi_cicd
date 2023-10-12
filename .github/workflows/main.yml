@@ -1,8 +1,8 @@
 name: cicd_test
 
-on:
+on: 
   push:
-    branches: 
+    branches:
       - main
   pull_request:
     branches:
@@ -10,14 +10,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v2
 
-    - name: build oremi test
-      run: pip install -r requirements.txt
+      - name: build
+        run: pip install -r requirements.txt
 
-    - name: deploy final stage
-      run: python app.py prod
+      - name: deploy
+        run: python app.py
+  
