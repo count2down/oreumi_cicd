@@ -4,7 +4,7 @@ on:
   push:
     branches: 
       -main
-  pull request:
+  pull_request:
     branches:
       -main
 
@@ -14,13 +14,10 @@ jobs:
 
     steps:
     - name: checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
 
     - name: build oremi test
       run: pip install -r requirements.txt
-
-    - name: test123
-      run: python app.py test
 
     - name: deploy final stage
       run: python app.py prod
